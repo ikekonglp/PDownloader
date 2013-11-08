@@ -29,14 +29,13 @@ public class CClient {
 	public static final int sleep_time = 0;
 	
 	public static void main(String[] args) {
-		//mainloop(
-		//		"http://search.proquest.com/hnpnewyorktimes/results/13FD0F8A26C57C5DAA2/1/$5bqueryType$3dbasic:hnpnewyorktimes$3b+sortType$3drelevance$3b+searchTerms$3d$5b$3cAND$7ccitationBodyTags:mao+zedong$3e$5d$3b+searchParameters$3d$7bNAVIGATORS$3dpubtitlenav,decadenav$28filter$3d110$2f0$2f*,sort$3dname$2fascending$29,yearnav$28filter$3d1100$2f0$2f*,sort$3dname$2fascending$29,yearmonthnav$28filter$3d120$2f0$2f*,sort$3dname$2fascending$29,monthnav$28sort$3dname$2fascending$29,daynav$28sort$3dname$2fascending$29,+RS$3dOP,+chunkSize$3d20,+instance$3dprod.academic,+ftblock$3d740842+1+660848+670831+194104+194001+670829+194000+660843+660840+104,+removeDuplicates$3dtrue$7d$3b+metaData$3d$7bUsageSearchMode$3dBasic,+dbselections$3d1007155,+fdbok$3dN$7d$5d?accountid=9902",
-		//       http://search.proquest.com/hnpnewyorktimes/results/13FD0F8A26C57C5DAA2/1/bqueryTypedbasic:hnpnewyorktimesb+sortTypedrelevanceb+searchTermsdbcANDccitationBodyTags:mao+zedongedb+searchParametersdbNAVIGATORSdpubtitlenav,decadenav8filterd110f0f*,sortdnamefascending9,yearnav8filterd1100f0f*,sortdnamefascending9,yearmonthnav8filterd120f0f*,sortdnamefascending9,monthnav8sortdnamefascending9,daynav8sortdnamefascending9,+RSdOP,+chunkSized20,+instancedprod.academic,+ftblockd740842+1+660848+670831+194104+194001+670829+194000+660843+660840+104,+removeDuplicatesdtruedb+metaDatadbUsageSearchModedBasic,+dbselectionsd1007155,+fdbokdNdd?accountid=9902
-		
-		//		2000, 20, new File("Download"));
-//		for(int i = 0; i < args.length; i++){
-//			System.out.println(i+"\t"+args[i]);
-//		}
+//		mainloop(
+//				"http://search.proquest.com/hnpwallstreetjournal/results/1419A4B2BC32C3A886E/1/$5bqueryType$3dbasic:hnpwallstreetjournal$3b+sortType$3drelevance$3b+searchTerms$3d$5b$3cAND$7ccitationBodyTags:howard$3e$5d$3b+searchParameters$3d$7bNAVIGATORS$3dpubtitlenav,decadenav$28filter$3d110$2f0$2f*,sort$3dname$2fascending$29,yearnav$28filter$3d1100$2f0$2f*,sort$3dname$2fascending$29,yearmonthnav$28filter$3d120$2f0$2f*,sort$3dname$2fascending$29,monthnav$28sort$3dname$2fascending$29,daynav$28sort$3dname$2fascending$29,+RS$3dOP,+chunkSize$3d20,+instance$3dprod.academic,+ftblock$3d740842+1+660848+670831+194104+194001+670829+194000+660843+660840+104,+removeDuplicates$3dtrue$7d$3b+metaData$3d$7bUsageSearchMode$3dBasic,+dbselections$3d1007154,+SEARCH_ID_TIMESTAMP$3d1383865119612,+fdbok$3dN$7d$5d?accountid=9902",
+//				//http://search.proquest.com/hnpnewyorktimes/results/13FD0F8A26C57C5DAA2/1/bqueryTypedbasic:hnpnewyorktimesb+sortTypedrelevanceb+searchTermsdbcANDccitationBodyTags:mao+zedongedb+searchParametersdbNAVIGATORSdpubtitlenav,decadenav8filterd110f0f*,sortdnamefascending9,yearnav8filterd1100f0f*,sortdnamefascending9,yearmonthnav8filterd120f0f*,sortdnamefascending9,monthnav8sortdnamefascending9,daynav8sortdnamefascending9,+RSdOP,+chunkSized20,+instancedprod.academic,+ftblockd740842+1+660848+670831+194104+194001+670829+194000+660843+660840+104,+removeDuplicatesdtruedb+metaDatadbUsageSearchModedBasic,+dbselectionsd1007155,+fdbokdNdd?accountid=9902
+//				2000, 20, new File("Download"));
+		for(int i = 0; i < args.length; i++){
+			System.out.println(i+"\t"+args[i]);
+		}
 		File rf = new File(args[0]);
 		LineReader lr = new LineReader(rf);
 		String u = lr.readNextLine().trim();
@@ -171,7 +170,7 @@ public class CClient {
 		CookieStore cookieStore = new BasicCookieStore();
 		HttpContext httpContext = new BasicHttpContext();
 
-		httpContext.setAttribute(ClientContext.COOKIE_STORE, cookieStore);
+		httpContext.setAttribute(ClientContext.COOKIE_STORE, cookieStore); 
 		try {
 			HttpResponse response1 = httpclient.execute(httpGet, httpContext);
 			boolean status = (response1.getStatusLine().getStatusCode() == 200);
@@ -206,7 +205,7 @@ public class CClient {
 			}
 			// rs = rs.substring(rs.indexOf("EmbedFile")+16);
 
-			rs = domain + rs;
+			//rs = domain + rs;
 			rs = rs.replaceAll("&amp;", "&");
 			// System.out.println(rs);
 
